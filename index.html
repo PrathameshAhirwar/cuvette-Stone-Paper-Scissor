@@ -167,28 +167,29 @@
         </div>
      </div>
 
-     <!-- Tie Phase -->
-     <div class="container mt-5 p-auto d-none" id="tieGame">
-        <div class="row d-flex">
-            <div class="col align-items-center d-flex flex-column text-center text-light">
-                <h4 class="text-center" >You Picked</h4>
-                <div class="rounded-circle bg-light m-5 p-5 text-center" style="border:20px solid #0074B6;width: 200px;" id="youWinDiv">
-                    <img src="./icons8-fist-67 1.png" class="img-top" alt="" id="yourSelection">
-                </div>
+     <!-- Winning Moment -->
+    <div class="container d-none" id="winCelebration">
+        <div class="container d-flex  flex-row justify-content-center h-50">
+            <div class="row position-absolute z-n1">
+                <img src="./Group 5.png" class="img-top "  alt="">
             </div>
-            <div class="col align-items-center d-flex  flex-column justify-content-center text-center text-light">
-                <h2 class="mt-2 p-2">TIE UP</h2>
-                <div class="btn btn-light text-center w-50" style="color: #527735;"><h5>REPLAY</h5></div>
-            </div>
-            
-            <div class="col align-items-center d-flex flex-column text-center text-light">
-                <h4 class="text-center">Computer Picked</h4>
-                <div class="rounded-circle text-center bg-light m-5 p-5" style="border:20px solid #0074B6; width: 200px;" id="compWinDiv">
-                    <img src="./icons8-fist-67 1.png" class="img-top" alt="" id="computerSelection">
-                </div>
+            <div class="row">
+                <img src="./Vector.png" class="img-top my-5 p-5 " alt="">
             </div>
         </div>
-     </div>
+        <div class="container d-flex align-items-center flex-column">
+            <div class="row">
+                <h1 class="text-light ">HURRAY !!</h1>
+            </div>
+            <div class="row">
+                <h5 class="text-light">YOU WON THE GAME</h5>
+            </div>
+            <div class="row">
+                <div class="btn btn-light text-center " style="color: #527735;" onclick="reset()"><h5>PLAY AGAIN</h5></div>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script>
 
@@ -235,14 +236,6 @@
 
       document.getElementById('computerSelection').src=imgChoice[cChoice]
       document.getElementById('compDiv').style.border=borderChoice[cChoice]
-      
-
-    //   setTimeout(()=>{
-    //     screen.classList.add("d-none");
-    //     mainScreen.classList.remove("d-none");
-    //     ruleBtn.classList.remove("d-none");
-    //   },2000)
-      
       
       if ((yourChoice === 'stone' && cChoice === 'scissor') ||
         (yourChoice === 'paper' && cChoice === 'stone') ||
@@ -297,10 +290,16 @@
         let winCondition = document.getElementById("winGame");
         let mainScreen = document.getElementById('screen1');
         let selScreen = document.getElementById('selected');
+        let winCelebration = document.getElementById('winCelebration')
 
-        winCondition.classList.remove("d-none");
+        winCelebration.classList.remove("d-none");
         mainScreen.classList.add("d-none");
         selScreen.classList.add("d-none");
+        
+        setTimeout(()=>{
+            winCelebration.classList.add("d-none");
+            winCondition.classList.remove('d-none');
+        },5000)
     }
     function comWin(params) {
         let looseCondition = document.getElementById("looseGame");
