@@ -236,13 +236,16 @@
 
       document.getElementById('computerSelection').src=imgChoice[cChoice]
       document.getElementById('compDiv').style.border=borderChoice[cChoice]
-      
-      if ((yourChoice === 'stone' && cChoice === 'scissor') ||
+      if (yourChoice == cChoice) {
+        // It's a tie
+        
+      }
+      else if ((yourChoice === 'stone' && cChoice === 'scissor') ||
         (yourChoice === 'paper' && cChoice === 'stone') ||
         (yourChoice === 'scissor' && cChoice === 'paper')) {
             yourScore += 1;
             document.getElementById('yourScore').innerHTML = yourScore;
-      } else {
+      } else{
         computerScore += 1;
         document.getElementById('cScore').innerHTML = computerScore;
       }
